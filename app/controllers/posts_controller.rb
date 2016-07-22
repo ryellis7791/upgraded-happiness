@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @post.course_id = 1
 
     respond_to do |format|
       if @post.save
@@ -67,6 +68,8 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
