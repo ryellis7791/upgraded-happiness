@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Content</th>
       <th>Email</th>
+      <th>When</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.user.email %></td>
+        <td><%= time_ago_in_words(post.created_at) %></td>
         <td><%= link_to 'Show', post %></td>
         <% if post.user == current_user %>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
