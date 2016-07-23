@@ -18,6 +18,7 @@
     <% @posts.each do |post| %>
     <% if current_user.courses.include?(post.course) %>
       <tr>
+        
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.user.username %></td>
