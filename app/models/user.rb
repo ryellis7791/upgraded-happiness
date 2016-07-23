@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :posts
   has_and_belongs_to_many :courses
+  has_many :comments
 end
