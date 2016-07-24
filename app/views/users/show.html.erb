@@ -1,1 +1,34 @@
 <h1><%= @user.username %></h1>
+
+<%= form_for(@user) do |f| %>
+  
+  <div class="field">
+    <%= f.label :course_one %>
+    <%= f.collection_select(:course_one, Course.all, :name, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :course_two %>
+    <%= f.collection_select(:course_two, Course.all, :name, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :course_three %>
+    <%= f.collection_select(:course_three, Course.all, :name, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :course_four %>
+    <%= f.collection_select(:course_four, Course.all, :name, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :course_five %>
+    <%= f.collection_select(:course_five, Course.all, :name, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <% end %>

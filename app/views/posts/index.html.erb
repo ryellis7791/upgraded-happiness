@@ -16,7 +16,7 @@
 
   <tbody>
     <% @posts.each do |post| %>
-    <% if current_user.courses.include?(post.course) %>
+    <% if post.course.name == current_user.course_one || post.course.name == current_user.course_two || post.course.name == current_user.course_three || post.course.name == current_user.course_four || post.course.name == current_user.course_five %>
       <tr>
         
         <td><%= post.title %></td>
