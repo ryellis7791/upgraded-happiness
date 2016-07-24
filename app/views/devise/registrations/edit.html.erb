@@ -27,6 +27,13 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <%= f.fields_for :courses do |builder| %>
+<fieldset>
+<%= builder.label :course %>
+<%= builder.collection_select(:name, Course.all, :name, :name) %>
+</fieldset>
+<% end %>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
