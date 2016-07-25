@@ -1,31 +1,17 @@
 <h1><%= @user.username %></h1>
-#A comment
+
 <%= form_for(@user) do |f| %>
   
-  <div class="field">
-    <%= f.label :course_one %>
-    <%= f.collection_select(:course_one, Course.all, :name, :name) %>
-  </div>
+  <%= f.fields_for :courses do |ff| %>
 
-  <div class="field">
-    <%= f.label :course_two %>
-    <%= f.collection_select(:course_two, Course.all, :name, :name) %>
-  </div>
+  <fieldset>
+    <%= ff.label :course %>
+    <%= ff.collection_select(:name, current_user.major.courses.all, :name, :name) %><br />
+    <%= ff.hidden_field :_destroy %>
+    <%= link_to "remove", '#', class: "remove_fields" %>
 
-  <div class="field">
-    <%= f.label :course_three %>
-    <%= f.collection_select(:course_three, Course.all, :name, :name) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :course_four %>
-    <%= f.collection_select(:course_four, Course.all, :name, :name) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :course_five %>
-    <%= f.collection_select(:course_five, Course.all, :name, :name) %>
-  </div>
+  </fieldset>
+<% end %>
 
   <div class="actions">
     <%= f.submit %>

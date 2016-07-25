@@ -13,6 +13,6 @@ class UsersController < ApplicationController
 	private
 	
 	def user_params
-	params.require(:user).permit(:course_one,:course_two,:course_three,:course_four,:course_five)
+	params.require(:user).permit(courses_attributes: [:name, :id, :_destroy])
 	end
 end

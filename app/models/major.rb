@@ -1,3 +1,5 @@
 class Major < ApplicationRecord
-	has_and_belongs_to_many :courses
+	has_many :courses
+	belongs_to :user
+	accepts_nested_attributes_for :courses
 end
